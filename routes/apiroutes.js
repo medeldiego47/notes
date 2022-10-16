@@ -1,10 +1,11 @@
 const fs = require('fs');
-const notes = require ('../Develop/db/db.json')
+const notes = require ('../db/db.json')
 const router = require('express').Router();
-const uniqueId = require('uniqid');
+const uniqid = require('uniqid');
+
 
 router.get('/api/notes', (req,res)=>{
-    fs.readFile('../develop/db/db.json', (err,data)=>{
+    fs.readFile('../db/db.json', (err,data)=>{
         err?err : console.log(JSON.parse(data));
         res.send(data)
     })
@@ -16,14 +17,14 @@ router.post('/api/notes', (req,res) =>{
         title: req.body.title,
         text: req.body.text
     }
-    fs.readFile('../Develop/db/db.json', (err,data)=>{
+    fs.readFile('../db/db.json', (err,data)=>{
         if (err)throw err;
 
         let parsedData = JSON.parse(data);
         parsedData.push(newNote);
         console.log(parsedData);
 
-        fs.writeFile('../Develop/db/db.json', JSON.stringify(parsedData), (err)=>{
+        fs.writeFile('../db/db.json', JSON.stringify(parsedData), (err)=>{
             err?console.log(err): res.send ('note created'
             )
         })
