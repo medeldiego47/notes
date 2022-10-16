@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const uniqid = require('uniqid');
-const {newNote} = require('../functions')
-let { notesArray } = require('../db/db.json')
+const {newNote} = require('../../functions')
+let { notesArray } = require('../../db/db.json')
 
 router.get('/notes', (req,res)=>{
    let results = notesArray;
