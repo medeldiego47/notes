@@ -9,8 +9,11 @@ router.get('/api/notes', (req,res)=>{
 });
 
 router.post('/api/notes', (req,res) =>{
-   const note = newNote(req.body, notes)
-   res.json(note);
+   if(notes){
+    req.body.id = notes.length.toString();
+   } else
+   {req.body.id =0}
+   res.json(newNote(req.body,notes))
 }
 )
 module.exports= router;
