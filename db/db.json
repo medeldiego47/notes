@@ -1,3 +1,6 @@
 {
-    "notesArray":[]
+    "notes":[{
+        "title": "test",
+        "text" : "test"
+    } ]
 }

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const uniqid = require('uniqid');
 const {newNote} = require('../../functions')
-let { notesArray } = require('../../db/db.json')
+let { notes } = require('../../db/db.json')
 
 router.get('/notes', (req,res)=>{
    let results = notesArray;
@@ -9,11 +9,8 @@ router.get('/notes', (req,res)=>{
 });
 
 router.post('/notes', (req,res) =>{
-    if(notesArray){
-        req.body.id = notesArray.length.toString();
-    } else
-    {req.body.id = 0}
-    res.json(newNote(req.body,notesArray));
+   const note = newNote(req.body, notes)
+   res.json(note);
 }
 )
 module.exports= router;
