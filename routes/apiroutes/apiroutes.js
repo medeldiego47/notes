@@ -9,11 +9,11 @@ router.get('/api/notes', (req,res)=>{
 });
 
 router.post('/api/notes', (req,res) =>{
-   if(notes){
+   if(notesArray){
     req.body.id = notes.length.toString();
    } else
    {req.body.id =0}
-   res.json(newNote(req.body,notes))
+   res.json(newNote(req.body,notesArray))
 }
 )
 module.exports= router;
