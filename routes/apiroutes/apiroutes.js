@@ -1,14 +1,14 @@
 const router = require('express').Router();
 const uniqid = require('uniqid');
-const {newNote} = require('../../functions')
-let { notes } = require('../../db/db.json')
+const { newNote } = require('../../functions')
+let { notesArray } = require('../../db/db.json')
 
-router.get('/api/notes', (req,res)=>{
+router.get('/notes', (req,res)=>{
    let results = notesArray;
    res.json(results);
 });
 
-router.post('/api/notes', (req,res) =>{
+router.post('/notes', (req,res) =>{
    if(notesArray){
     req.body.id = notes.length.toString();
    } else
