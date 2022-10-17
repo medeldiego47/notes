@@ -9,11 +9,10 @@ router.get('/notes', (req,res)=>{
 });
 
 router.post('/notes', (req,res) =>{
-   if(notesArray){
     req.body.id = notes.length.toString();
-   } else
-   {req.body.id =0}
-   res.json(makeNewNote(req.body,notesArray))
+  const note = newNote(req.body, notesArray);
+  res.json(note);
+ 
 }
 )
 module.exports= router;
