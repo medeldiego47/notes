@@ -9,8 +9,8 @@ router.get('/notes', (req,res)=>{
 });
 
 router.post('/notes', (req,res) =>{
-    req.body.id = notes.length.toString();
-  const note = newNote(req.body, notesArray);
+    req.body.id = notesArray.length.toString();
+  const note = makeNewNote(req.body, notesArray);
   res.json(note);
  
 }
