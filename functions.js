@@ -11,4 +11,4 @@ function makeNewNote(body, notesArray){
     return note
 }
 
-module.exports = newNote
+module.exports = makeNewNote
