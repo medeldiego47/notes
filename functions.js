@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require ('path');
 
-function newNote(body, notesArray){
+function makeNewNote(body, notesArray){
     const note = body;
     notesArray.push(note);
     fs.writeFileSync(
